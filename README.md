@@ -1,6 +1,6 @@
 # EKS
 
-##Troubleshooting:
+## Troubleshooting:
 1) File association not found for extension .py
 ```aidl
 assoc .py=py_auto_file
