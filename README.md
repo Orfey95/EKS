@@ -7,6 +7,7 @@ assoc .py=py_auto_file
 ftype py_auto_file="C:\Python38\python.exe" "%1" %*
 ```
 ***Note:** Change C:\Python38\python.exe to your python.exe path.*
+
 2) Unauthorized or access denied (kubectl)
    
 Help link: https://aws.amazon.com/ru/premiumsupport/knowledge-center/eks-api-server-unauthorized-error/
