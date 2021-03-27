@@ -1,4 +1,4 @@
-# EKS
+# AWS EKS
 
 ## Troubleshooting:
 1) File association not found for extension .py
