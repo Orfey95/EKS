@@ -27,6 +27,26 @@ Parameters:
     Default: t2.micro
     Description: Enter EKS node group instance type.
 
+  eksNodeGroupCapacityType:
+    Type: String
+    Default: SPOT
+    Description: Enter EKS node group capacity type.
+
+  eksNodeGroupMinSize:
+    Type: String
+    Default: 1
+    Description: Enter EKS node group minimal number of nodes.
+
+  eksNodeGroupDesiredSize:
+    Type: String
+    Default: 2
+    Description: Enter EKS node group desired number of nodes.
+
+  eksNodeGroupMaxSize:
+    Type: String
+    Default: 3
+    Description: Enter EKS node group maximal number of nodes.
+
 Resources:
 
 ############### NETWORK ####################
@@ -185,15 +205,16 @@ Resources:
       ClusterName: !Ref eksClusterName
       NodeRole: !GetAtt eksNodeInstanceRole.Arn
       AmiType: !Ref eksNodeGroupAMIType
+      CapacityType: !Ref eksNodeGroupCapacityType
       InstanceTypes: 
         - !Ref eksNodeGroupInstanceType
       NodegroupName: !Ref eksNodeGroupName
       RemoteAccess:
         Ec2SshKey: !Ref eksSSHKey
       ScalingConfig:
-        MinSize: 1
-        DesiredSize: 2
-        MaxSize: 3
+        MinSize: !Ref eksNodeGroupMinSize
+        DesiredSize: !Ref eksNodeGroupDesiredSize
+        MaxSize: !Ref eksNodeGroupMaxSize
       Labels:
         Project: aws-eks
       Subnets:
